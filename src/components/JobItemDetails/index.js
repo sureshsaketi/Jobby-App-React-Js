@@ -122,7 +122,7 @@ class JobItemDetails extends Component {
             <div className="company-logo-container">
               <img
                 src={companyLogoUrl}
-                alt="company logo"
+                alt="job details company logo"
                 className="company-logo-image"
               />
               <div className="company-name-and-rating">
@@ -142,7 +142,7 @@ class JobItemDetails extends Component {
                 <BsBriefcaseFill />
                 <p>{employmentType}</p>
               </div>
-              <h1 className="package">{packagePerAnnum}</h1>
+              <p className="package">{packagePerAnnum}</p>
             </div>
             <hr className="separator" />
             <div className="description-link-container">
@@ -204,7 +204,7 @@ class JobItemDetails extends Component {
       <button
         type="button"
         className="retry-button"
-        onClick={() => this.getJobs()}
+        onClick={() => this.getJobDetails()}
       >
         Retry
       </button>

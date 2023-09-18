@@ -41,7 +41,8 @@ class Jobs extends Component {
     } = this.state
     const employTypes = employmentTypesChecked.join(',')
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = `https://apis.ccbp.in/jobs?empolyment_type=${employTypes}&minimum_package=${activeSalaryRangeId}&${searchInput}`
+    const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${employTypes}&minimum_package=${activeSalaryRangeId}&search=${searchInput}`
+
     const options = {
       method: 'GET',
       headers: {
@@ -81,10 +82,11 @@ class Jobs extends Component {
     } else {
       updatedList = [...updatedList, typeId]
     }
-    this.setState({employmentTypesChecked: updatedList})
+    this.setState({employmentTypesChecked: updatedList}, this.getJobs)
   }
 
-  updateSalaryRangeId = rangeId => this.setState({activeSalaryRangeId: rangeId})
+  updateSalaryRangeId = rangeId =>
+    this.setState({activeSalaryRangeId: rangeId}, this.getJobs)
 
   getProfileDetails = async () => {
     this.setState({profileApiStatus: apiStatusConstants.inProgress})
@@ -123,6 +125,7 @@ class Jobs extends Component {
     return (
       <div className="search-bar" id={searchBarId}>
         <input
+          type="search"
           placeholder="Search"
           className="search-input"
           value={searchInput}
