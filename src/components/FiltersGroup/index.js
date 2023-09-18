@@ -1,4 +1,3 @@
-import {Component} from 'react'
 import './index.css'
 
 // These are the lists used in the application. You can move them to any component needed.
@@ -61,12 +60,12 @@ const FiltersGroup = props => {
     })
   }
   const renderSalaryRangeList = () => {
-    const {updateSalaryRangeId} = props
+    const {updateSalaryRangeId, activeSalaryRangeId} = props
 
     return salaryRangesList.map(eachRange => {
       const onChangeRange = () => updateSalaryRangeId(eachRange.salaryRangeId)
 
-      const isChecked = eachRange.salaryRangeId
+      const isChecked = eachRange.salaryRangeId === activeSalaryRangeId
       return (
         <li className="filters-list-item" key={eachRange.salaryRangeId}>
           <input
@@ -75,7 +74,7 @@ const FiltersGroup = props => {
             id={eachRange.salaryRangeId}
             name="salary ranges"
             onChange={onChangeRange}
-            // checked={isChecked}
+            checked={isChecked}
           />
           <label htmlFor={eachRange.salaryRangeId}>{eachRange.label}</label>
         </li>

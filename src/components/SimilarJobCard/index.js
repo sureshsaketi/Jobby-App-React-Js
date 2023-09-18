@@ -2,10 +2,9 @@ import {Link} from 'react-router-dom'
 import {AiFillStar} from 'react-icons/ai'
 import {MdLocationOn} from 'react-icons/md'
 import {BsBriefcaseFill} from 'react-icons/bs'
-
 import './index.css'
 
-const JobCard = props => {
+const SimilarJobCard = props => {
   const {jobDetails} = props
   const {
     companyLogoUrl,
@@ -18,7 +17,7 @@ const JobCard = props => {
     title,
   } = jobDetails
   return (
-    <li className="job-card">
+    <li className="similar-job-card">
       <Link to={`/jobs/${id}`} className="job-card-link">
         <div className="company-logo-container">
           <img
@@ -34,6 +33,8 @@ const JobCard = props => {
             </div>
           </div>
         </div>
+        <h1 className="description-heading">Description</h1>
+        <p className="job-description">{jobDescription}</p>
         <div className="location-and-package-container">
           <div className="location-container">
             <MdLocationOn />
@@ -45,11 +46,8 @@ const JobCard = props => {
           </div>
           <h1 className="package">{packagePerAnnum}</h1>
         </div>
-        <hr className="separator" />
-        <h1 className="description">Description</h1>
-        <p className="job-description">{jobDescription}</p>
       </Link>
     </li>
   )
 }
-export default JobCard
+export default SimilarJobCard
