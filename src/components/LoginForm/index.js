@@ -21,7 +21,7 @@ class LoginForm extends Component {
           type="text"
           id="username"
           className="login-input"
-          placeholder="rahul"
+          placeholder="suresh"
           onChange={this.updateUsername}
           value={username}
         />
